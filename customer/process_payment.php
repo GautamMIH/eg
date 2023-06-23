@@ -25,7 +25,7 @@ $amount = $_POST['amount'];
 
 
 // Create PayPal order request
-$returnUrl = 'http://localhost/egovbe/success.php?bid=' . urlencode($bid);
+$returnUrl = 'http://localhost//egovbe/customer/success.php?bid=' . urlencode($bid).'&amt='.urlencode($amount);
 $request = new OrdersCreateRequest();
 $request->prefer('return=representation');
 $request->body = [
@@ -39,7 +39,7 @@ $request->body = [
     
     "application_context" => [
         "return_url" => $returnUrl, // Replace with your success URL
-        "cancel_url" => "http://localhost/egovbe/searchcustomer.php" // Replace with your cancel URL
+        "cancel_url" => "http://localhost/egovbe/customer/payment.php" // Replace with your cancel URL
     ]
 ];
 

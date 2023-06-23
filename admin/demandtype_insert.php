@@ -1,18 +1,22 @@
 <?php
+session_start();
+if(!isset($_SESSION['aid'])){
+    header('Location: http://localhost/egovbe/admin/login.php');
+}
 // Replace DB_HOST, DB_USER, DB_PASS, and DB_NAME with your database credentials
 $conn = mysqli_connect("localhost", "root", "", "nea");
 
 // Get the form data
 
-$Name = $_POST['Name'];
+$Description = $_POST['Description'];
 $Status = $_POST['Status'];
 
-// Insert data into the payment_option table
-$query = "INSERT INTO payment_option (Name, Status) VALUES ('$Name', '$Status')";
+// Insert data into the demandtype table
+$query = "INSERT INTO demandtype (Description, Status) VALUES ('$Description', '$Status')";
 $result = mysqli_query($conn, $query);
 
 if ($result) {
-  echo "Payment Option added successfully";
+  echo "Demand Type added successfully";
 } else {
   echo "Error: " . mysqli_error($conn);
 }

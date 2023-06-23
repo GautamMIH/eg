@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if(!isset($_SESSION['aid'])){
+        header('Location: http://localhost/egovbe/admin/login.php');
+    }
+     ?><!DOCTYPE html>
 <html>
 <head>
     <title>Add Customer</title>
@@ -6,6 +11,10 @@
 <body>
 
 <?php
+session_start();
+if(!isset($_SESSION['aid'])){
+    header('Location: http://localhost/egovbe/admin/login.php');
+}
 include("dbconnect.php");
 
 // Fetch Branch_ID values from the branch table

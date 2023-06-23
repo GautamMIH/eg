@@ -1,11 +1,20 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if(!isset($_SESSION['aid'])){
+        header('Location: http://localhost/egovbe/admin/login.php');
+    }
+     ?><!DOCTYPE html>
 <html>
 <head>
   <title>Add Demand Type</title>
+  <link rel="stylesheet" href = "header.css">
 </head>
 <body>
+<?php
+    include('header.php');
+    ?>
   <h2>Add Demand Type</h2>
-  <form action="http://localhost/newgpt/demandtype_insert.php" method="POST">
+  <form action="http://localhost/egovbe/admin/demandtype_insert.php" method="POST">
 
     <label>Description:</label>
     <input type="text" name="Description" required><br><br>

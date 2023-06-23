@@ -1,9 +1,18 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if(!isset($_SESSION['aid'])){
+        header('Location: http://localhost/egovbe/admin/login.php');
+    }
+     ?><!DOCTYPE html>
 <html>
 <head>
   <title>Add Payment</title>
+  <link rel="stylesheet" href = "header.css">
 </head>
 <body>
+<?php
+    include('header.php');
+    ?>
   <h2>Add Payment</h2>
   <form action="payment_insert.php" method="POST">
     <label>BID:</label>

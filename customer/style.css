@@ -1,4 +1,4 @@
-*{
+table{
    text-align: center;
 }
 
@@ -13,4 +13,8 @@
     margin:auto;
     margin-bottom: 20px;
     align-items: center;
+}
+
+.navbar-profile {
+    text-align:auto;
 }

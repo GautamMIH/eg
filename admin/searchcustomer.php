@@ -1,11 +1,20 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['aid'])){
+      header('Location: http://localhost/egovbe/admin/login.php');
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Search Customer</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script src="https://www.paypal.com/sdk/js?client-id=Ac4Cw-WEpZx6fxQv0X2bSrdrmFuPnVyhZOfhShxJbrPPB1NQsaVPnM3KxC7pBNp7yNzlINzeItGndo8m"></script>
+    <link rel="stylesheet" href = "header.css">
 </head>
 <body>
+<?php
+    include('header.php');
+    ?>
 
 
 

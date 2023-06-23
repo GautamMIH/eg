@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['aid'])){
+    header('Location: http://localhost/egovbe/admin/login.php');
+}
 // Assuming you have already established a database connection
 $conn = mysqli_connect("localhost", "root", "", "nea");
 
@@ -38,8 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Add Payment</title>
+    <link rel="stylesheet" href = "header.css">
 </head>
 <body>
+<?php
+    include('header.php');
+    ?>
     <h2>Add Payment</h2>
     <form action="" method="post">
         <label for="BID">BID:</label>

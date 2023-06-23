@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2023 at 10:57 AM
+-- Generation Time: Jun 23, 2023 at 03:12 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `nea`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `aid` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `phone` varchar(10) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`aid`, `name`, `email`, `phone`, `password`) VALUES
+(2, 'Gautam Mudbhari', 'gautam.mudbahri16@gmail.com', '9840480778', '9114e94600da0897c291dd1ecca5b176');
 
 -- --------------------------------------------------------
 
@@ -47,7 +68,11 @@ CREATE TABLE `bill` (
 INSERT INTO `bill` (`BID`, `BDate`, `BYear`, `BMonth`, `CUSID`, `Current_Reading`, `Prev_reading`, `Bamount`, `payment_status`, `payment_id`) VALUES
 (4, '2023-06-07', '2023', 'May', 12312, 500, 600, 5000, 1, NULL),
 (5, '2023-06-14', '2023', 'March', 12312, 4000, 5000, 132123, 1, NULL),
-(8, '2023-06-23', '2016', 'March', 12312, 1231231231, 123123, 30000, 1, 4);
+(8, '2023-06-23', '2016', 'March', 12312, 1231231231, 123123, 30000, 1, 4),
+(9, '2023-06-21', '2019', 'July', 12312, 9000, 98000, 123123, 0, 6),
+(10, '2023-06-23', '2013', 'January', 12313, 500, 600, 500, NULL, NULL),
+(12, '2023-06-23', '2013', 'January', 12313, 500, 600, 500, NULL, NULL),
+(13, '2023-06-24', '2013', 'January', 12313, 132, 123, 123, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -71,7 +96,8 @@ INSERT INTO `branch` (`Branch_ID`, `Name`, `Status`) VALUES
 (234540, 'koteshor', 1),
 (234541, 'Bhupesh', 1),
 (234542, 'bishal', 1),
-(234543, 'kathmandu', 1);
+(234543, 'kathmandu', 1),
+(234544, '123', 1);
 
 -- --------------------------------------------------------
 
@@ -101,7 +127,8 @@ INSERT INTO `customer` (`SCNO`, `CUSID`, `FullName`, `Address`, `MobileNo`, `Bra
 (123, 12312, 'hari', 'lokanthali', '9898234', 1, 124, NULL),
 (0, 12313, ' bishal pahari', 'maitighar', '9812222222', 234540, 124, '1997-07-25'),
 (NULL, 12314, ' bishal pahari', 'maitighar', '9812222222', 234540, 124, '1997-07-25'),
-(NULL, 12315, 'Bishal Budhakshetri', 'Taplejung', '9823677799', 234539, 124, '2023-06-05');
+(NULL, 12315, 'Bishal Budhakshetri', 'Taplejung', '9823677799', 234539, 124, '2023-06-05'),
+(NULL, 12316, '123', '123', '123', 1, 124, '2023-06-23');
 
 -- --------------------------------------------------------
 
@@ -120,7 +147,8 @@ CREATE TABLE `demandtype` (
 --
 
 INSERT INTO `demandtype` (`Demand_Type_ID`, `Description`, `Status`) VALUES
-(124, '5A', 1);
+(124, '5A', 1),
+(125, '123', 1);
 
 -- --------------------------------------------------------
 
@@ -165,7 +193,10 @@ CREATE TABLE `payment` (
 
 INSERT INTO `payment` (`PID`, `BID`, `PDate`, `PAmount`, `POID`, `Rebeat_Amt`, `Fine_Amt`) VALUES
 (4, 4, '2023-06-01', 123, 11, 123, 123),
-(5, 5, '2023-06-20', 123, 11, 123123, 123);
+(5, 5, '2023-06-20', 123, 11, 123123, 123),
+(8, 8, '0000-00-00', 100, 1, 0, 0),
+(10, 9, '0000-00-00', 123123, 1, 0, 0),
+(11, 9, '0000-00-00', 123123, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -184,12 +215,21 @@ CREATE TABLE `payment_option` (
 --
 
 INSERT INTO `payment_option` (`POID`, `Name`, `Status`) VALUES
+(1, 'paypal', 1),
 (11, 'esewa', 1),
-(12, 'kathmandu', 1);
+(13, '123', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`aid`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `phone` (`phone`);
 
 --
 -- Indexes for table `bill`
@@ -244,28 +284,34 @@ ALTER TABLE `payment_option`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `BID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `BID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `branch`
 --
 ALTER TABLE `branch`
-  MODIFY `Branch_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234544;
+  MODIFY `Branch_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234545;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CUSID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12316;
+  MODIFY `CUSID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12317;
 
 --
 -- AUTO_INCREMENT for table `demandtype`
 --
 ALTER TABLE `demandtype`
-  MODIFY `Demand_Type_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `Demand_Type_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT for table `demand_rate`
@@ -277,13 +323,13 @@ ALTER TABLE `demand_rate`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `payment_option`
 --
 ALTER TABLE `payment_option`
-  MODIFY `POID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `POID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

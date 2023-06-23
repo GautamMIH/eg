@@ -1,11 +1,22 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if(!isset($_SESSION['aid'])){
+        header('Location: http://localhost/egovbe/admin/login.php');
+    }
+     ?>
+     <!DOCTYPE html>
 <html>
 <head>
   <title>Add Bill</title>
+  <link rel="stylesheet" href = "header.css">
 </head>
 <body>
+<?php
+    include('header.php');
+    ?>
+
   <h2>Add Bill</h2>
-  <form action="http://localhost/egovbe/bill_insert.php" method="POST">
+  <form action="http://localhost/egovbe/admin/bill_insert.php" method="POST">
     <label>BDate:</label>
     <input type="date" name="BDate" required><br><br>
     <label>BYear:</label>

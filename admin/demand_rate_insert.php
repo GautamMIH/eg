@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['aid'])){
+    header('Location: http://localhost/egovbe/admin/login.php');
+}
+
 // Database connection settings
 $servername = "localhost";
 $username = "root";
@@ -48,8 +53,12 @@ $conn->close();
 <html>
 <head>
     <title>Add Demand Rate</title>
+    <link rel="stylesheet" href = "header.css">
 </head>
 <body>
+<?php
+    include('header.php');
+    ?>
     <h1>Add Demand Rate</h1>
     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label for="demandTypeId">Demand Type:</label>

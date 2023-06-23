@@ -1,11 +1,20 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if(!isset($_SESSION['aid'])){
+        header('Location: http://localhost/egovbe/admin/login.php');
+    }
+     ?><!DOCTYPE html>
 <html>
 <head>
   <title>Add Customer</title>
+  <link rel="stylesheet" href = "header.css">
 </head>
 <body>
+<?php
+    include('header.php');
+    ?>
   <h2>Add Customer</h2>
-  <form action="http://localhost/newgpt/customer_insert.php" method="POST">
+  <form action="http://localhost/egovbe/admin/customer_insert.php" method="POST">
     <label>SCNO:</label>
     <input type="number" name="SCNO" required><br><br>
     <label>CUSID:</label>

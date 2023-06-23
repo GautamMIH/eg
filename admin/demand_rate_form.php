@@ -1,9 +1,18 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    if(!isset($_SESSION['aid'])){
+        header('Location: http://localhost/egovbe/admin/login.php');
+    }
+     ?><!DOCTYPE html>
 <html>
 <head>
   <title>Add Demand Rate</title>
+  <link rel="stylesheet" href = "header.css">
 </head>
 <body>
+<?php
+    include('header.php');
+    ?>
   <h2>Add Demand Rate</h2>
   <form action="demand_rate_insert.php" method="POST">
     <label>Demand Type ID:</label>
