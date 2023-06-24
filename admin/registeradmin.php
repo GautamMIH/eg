@@ -23,7 +23,7 @@
         $phone = $_POST['phone'];
         $password = md5($_POST['pwd']);
 
-        $queryadmin = "INSERT INTO admin (name, email, phone, password) VALUES('$name','$email','$phone','$password')";
+        $queryadmin = "INSERT INTO admin (name, email, phone, password, superadmin) VALUES('$name','$email','$phone','$password', '0')";
         $result = mysqli_query($conn, $queryadmin);
         if($result){
             echo'Admin registered successfully';

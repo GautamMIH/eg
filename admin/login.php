@@ -34,6 +34,7 @@
             $_SESSION['adname'] = $row['name'];
             $_SESSION['ademail'] = $row['email'];
             $_SESSION['adphone'] = $row['phone'];
+            $_SESSION['superadmin'] = $row['superadmin'];
             echo"Successfully logged in";
             echo"You will be redirected in 5 seconds";
             sleep(5);

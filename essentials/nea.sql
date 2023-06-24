@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2023 at 03:12 PM
+-- Generation Time: Jun 24, 2023 at 06:21 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -32,15 +32,16 @@ CREATE TABLE `admin` (
   `name` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `phone` varchar(10) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL
+  `password` varchar(50) DEFAULT NULL,
+  `superadmin` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`aid`, `name`, `email`, `phone`, `password`) VALUES
-(2, 'Gautam Mudbhari', 'gautam.mudbahri16@gmail.com', '9840480778', '9114e94600da0897c291dd1ecca5b176');
+INSERT INTO `admin` (`aid`, `name`, `email`, `phone`, `password`, `superadmin`) VALUES
+(2, 'Gautam Mudbhari', 'gautam.mudbahri16@gmail.com', '9840480778', '9114e94600da0897c291dd1ecca5b176', 1);
 
 -- --------------------------------------------------------
 
@@ -287,7 +288,7 @@ ALTER TABLE `payment_option`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `bill`
