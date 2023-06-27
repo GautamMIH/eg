@@ -15,8 +15,6 @@
 
 <?php
 include('header.php');
-
-
 include("dbconnect.php");
 
     $cusid = $_SESSION['cusid'];
@@ -126,10 +124,10 @@ include("dbconnect.php");
             <td> $PReading</td> 
           ";
         if($Pstatus == 1){
-          echo"<td>PAID<td></tr>";
+          echo"<td>PAID</td></tr>";
         }
         elseif($Pstatus != 1){
-         echo"<td>UNPAID</td></tr>";
+         echo'<td><a href="http://localhost/egovbe/customer/process_payment.php?bid='.urlencode($BID).'&amount='.urlencode($Bamount).'">Pay</a></td></tr>';
         }
 
 
