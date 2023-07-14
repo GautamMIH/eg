@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2023 at 06:21 AM
+-- Generation Time: Jul 14, 2023 at 06:54 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -67,13 +67,13 @@ CREATE TABLE `bill` (
 --
 
 INSERT INTO `bill` (`BID`, `BDate`, `BYear`, `BMonth`, `CUSID`, `Current_Reading`, `Prev_reading`, `Bamount`, `payment_status`, `payment_id`) VALUES
-(4, '2023-06-07', '2023', 'May', 12312, 500, 600, 5000, 1, NULL),
+(4, '2023-06-07', '2023', 'May', 12312, 500, 600, 5000, 0, NULL),
 (5, '2023-06-14', '2023', 'March', 12312, 4000, 5000, 132123, 1, NULL),
 (8, '2023-06-23', '2016', 'March', 12312, 1231231231, 123123, 30000, 1, 4),
-(9, '2023-06-21', '2019', 'July', 12312, 9000, 98000, 123123, 0, 6),
-(10, '2023-06-23', '2013', 'January', 12313, 500, 600, 500, NULL, NULL),
-(12, '2023-06-23', '2013', 'January', 12313, 500, 600, 500, NULL, NULL),
-(13, '2023-06-24', '2013', 'January', 12313, 132, 123, 123, NULL, NULL);
+(9, '2023-06-21', '2019', 'July', 12312, 9000, 98000, 123123, 1, 6),
+(10, '2023-06-23', '2013', 'January', 12313, 500, 600, 500, 1, NULL),
+(12, '2023-06-23', '2013', 'January', 12313, 500, 600, 500, 0, NULL),
+(13, '2023-06-24', '2013', 'January', 12313, 132, 123, 123, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -128,7 +128,7 @@ INSERT INTO `customer` (`SCNO`, `CUSID`, `FullName`, `Address`, `MobileNo`, `Bra
 (123, 12312, 'hari', 'lokanthali', '9898234', 1, 124, NULL),
 (0, 12313, ' bishal pahari', 'maitighar', '9812222222', 234540, 124, '1997-07-25'),
 (NULL, 12314, ' bishal pahari', 'maitighar', '9812222222', 234540, 124, '1997-07-25'),
-(NULL, 12315, 'Bishal Budhakshetri', 'Taplejung', '9823677799', 234539, 124, '2023-06-05'),
+(NULL, 12315, 'Bishal Budhakshetri', 'Taplejung', '9823677799', 234539, 125, '2023-06-05'),
 (NULL, 12316, '123', '123', '123', 1, 124, '2023-06-23');
 
 -- --------------------------------------------------------
@@ -149,7 +149,7 @@ CREATE TABLE `demandtype` (
 
 INSERT INTO `demandtype` (`Demand_Type_ID`, `Description`, `Status`) VALUES
 (124, '5A', 1),
-(125, '123', 1);
+(125, '10A', 1);
 
 -- --------------------------------------------------------
 
@@ -196,8 +196,8 @@ INSERT INTO `payment` (`PID`, `BID`, `PDate`, `PAmount`, `POID`, `Rebeat_Amt`, `
 (4, 4, '2023-06-01', 123, 11, 123, 123),
 (5, 5, '2023-06-20', 123, 11, 123123, 123),
 (8, 8, '0000-00-00', 100, 1, 0, 0),
-(10, 9, '0000-00-00', 123123, 1, 0, 0),
-(11, 9, '0000-00-00', 123123, 1, 0, 0);
+(26, 13, '0000-00-00', 123, 1, 0, 0),
+(27, 13, '0000-00-00', 123, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -324,7 +324,7 @@ ALTER TABLE `demand_rate`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `payment_option`
